@@ -51,31 +51,32 @@ if __name__ == '__main__':
         
                     
         def team_sel():
-            try:
-                team_selected = int(input("\n""To select which teams stats to view enter an option [1], [2], or [3]""\n" "> " ))
-                print(team_selected)
-            except ValueError:
-                print("That was not a valid input. Please pick a number between [1] and [3]")
-                team_sel()
-            else:    
-                if team_selected >= 4:
-                    print("That was not a valid input. Please pick a number between [1] and [3] ")
-                    team_sel()
-                elif team_selected <= 0:    
-                    print("That was not a valid input. Please pick a number between [1] and [3] ")
-                    team_sel()
-                team_name_sel = teams_mod[team_selected - 1]
-                print("\n""Team: {} Stats".format(team_name_sel))
-                print("--------------------")
-                players_per_team = len(players_mod) / len(teams_mod) 
-                print("Total Players: {}".format(int(players_per_team)))
-                if team_selected == 1:
-                    team = ex_team_1
-                elif team_selected == 2:
-                    team = ex_team_2
-                elif team_selected == 3:
-                    team = ex_team_3
-                exp_play_name_qty(team, team_selected) 
+            input_valid = False  # let's assume from the beginning that the input isn't valid
+            while not input_valid:  # keep asking until we actually get valid input
+                try:
+                    team_selected = int(input("\n""To select which teams stats to view enter an option [1], [2], or [3]""\n" "> " ))
+                    print(team_selected)
+                except ValueError:
+                    print("That was not a valid input. Please pick a number between [1] and [3]")
+                else:    
+                    if team_selected >= 4:
+                        print("That was not a valid input. Please pick a number between [1] and [3] ")
+                    elif team_selected <= 0:    
+                        print("That was not a valid input. Please pick a number between [1] and [3] ")
+                    else:
+                        input_valid = True  # if it made it down here then the input was ok so set input_valid to True
+                        team_name_sel = teams_mod[team_selected - 1]
+                        print("\n""Team: {} Stats".format(team_name_sel))
+                        print("--------------------")
+                        players_per_team = len(players_mod) / len(teams_mod) 
+                        print("Total Players: {}".format(int(players_per_team)))
+                        if team_selected == 1:
+                            team = ex_team_1
+                        elif team_selected == 2:
+                            team = ex_team_2
+                        elif team_selected == 3:
+                            team = ex_team_3
+                        exp_play_name_qty(team, team_selected)  
                     
         def exp_play_name_qty(team_num, team_selected):
             if len(ex_team_1 or ex_team_2 or ex_team_3) == 0:
