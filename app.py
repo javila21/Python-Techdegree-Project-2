@@ -51,8 +51,8 @@ if __name__ == '__main__':
         
                     
         def team_sel():
-            input_valid = False  # let's assume from the beginning that the input isn't valid
-            while not input_valid:  # keep asking until we actually get valid input
+            input_valid = False  
+            while not input_valid:  
                 try:
                     team_selected = int(input("\n""To select which teams stats to view enter an option [1], [2], or [3]""\n" "> " ))
                     print(team_selected)
@@ -64,7 +64,7 @@ if __name__ == '__main__':
                     elif team_selected <= 0:    
                         print("That was not a valid input. Please pick a number between [1] and [3] ")
                     else:
-                        input_valid = True  # if it made it down here then the input was ok so set input_valid to True
+                        input_valid = True  
                         team_name_sel = teams_mod[team_selected - 1]
                         print("\n""Team: {} Stats".format(team_name_sel))
                         print("--------------------")
