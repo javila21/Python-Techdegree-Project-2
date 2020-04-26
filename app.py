@@ -28,33 +28,35 @@ height_ave_team_2 = []
 height_ave_team_3 = []
 run = 0
 teams_mod.extend(constants.TEAMS)
-players_mod.extend(copy.deepcopy(constants.PLAYERS))  
-print("BASKETBALL TEAM STATS TOOL   ")
+players_mod.extend(copy.deepcopy(constants.PLAYERS)) 
 
-while True:    
-    def team_stats():
-        team_num = 1
-        print("\n""TEAMS")
-        for team in teams_mod:
-            num_teams = len(teams_mod)
-            print("{}) {}".format(team_num, team[0:]))
-            team_num += 1
-            if team_num > len(teams_mod):
-                when_to_run_func()
+if __name__ == '__main__': 
+
+    print("BASKETBALL TEAM STATS TOOL   ")
+    
+    while True:    
+        def team_stats():
+            team_num = 1
+            print("\n""TEAMS")
+            for team in teams_mod:
+                num_teams = len(teams_mod)
+                print("{}) {}".format(team_num, team[0:]))
+                team_num += 1
+                if team_num > len(teams_mod):
+                    when_to_run_func()
                 
                 
-    def when_to_run_func():
-        """The when_to_run_func only runs the clean_players() and exp_players()                 functions once. The program is modifying the lists these funcitons populate with         each loop and it wouldn't work if the lists were being repopulated.  
-        """   
-        global run
-        run += 1
-        if run == 1:
-            clean_players()
-            exp_players()
-        team_sel()   
-            
-    if __name__ == '__main__':        
-                    
+        def when_to_run_func():
+            """The when_to_run_func only runs the clean_players() and exp_players()                 functions once. The program is modifying the lists these funcitons populate with         each loop and it wouldn't work if the lists were being repopulated.  
+            """   
+            global run
+            run += 1
+            if run == 1:
+                clean_players()
+                exp_players()
+            team_sel()   
+                
+                        
         def team_sel():
             """While statement to get team selection from user with exception       handling"""
             input_valid = False  
@@ -88,7 +90,6 @@ while True:
                             team = ex_team_3
                         exp_play_name_qty(team, team_selected)  
                         
-    if __name__ == '__main__':                       
                     
         def exp_play_name_qty(team_num, team_selected):
             """If none of the expereinced players have been assigned to a team yet claculate the # of                     expereinced players for each team by dividing all the expereinced players available by the number             of teams to fill
@@ -340,6 +341,6 @@ while True:
     
     
 
-
+    
 
     
